@@ -1,0 +1,25 @@
+
+spring:
+  application:
+    name: config-client
+  profiles:
+    active: development
+  config:
+    import: configserver:http://admin:admin@localhost:8888
+
+  cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+    config:
+      fail-fast: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
+    
+spring.cloud.stream.kafka.binder.brokers: localhost:9092
